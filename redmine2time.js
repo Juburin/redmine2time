@@ -13,7 +13,7 @@ function releasetheKraken() {
     var $text = h2.text().substring(h2.text().indexOf('#'))+': '+$('#content .subject h3').text();
     var $container = $('<div id="redmine2time"><p id="redmine2time-text">' + $text + '</p></div>');
     var $close = $('<a id="redmine2time-close" href="#">X</a>');
-    var $select = $('<select name="task" id="task_selector"><option value=""></option><option value="Entwicklung">Entwicklung</option><option value="Bug Fixing">Bug Fixing</option><option value="Deployment">Deployment</option><option value="Testing">Testing</option><option value="Kundenkommunikation">Kundenkommunikation</option><option value="Interne Kommunikation">Interne Kommunikation</option><option value="Dokumentation">Dokumentation</option><option value="Reinzeichnung">Reinzeichnung</option><option value="Layout erstellt">Layout erstellt</option><option value="Bühne produziert">Bühne produziert</option><option value="Visual produziert">Visual produziert</option><option value="Research">Research</option></select>');
+    var $select = $('<select name="task" id="task_selector"><option></option><option>Entwicklung</option><option>Bug Fixing</option><option>Deployment</option><option>Testing</option><option>Kundenkommunikation</option><option>Interne Kommunikation</option><option>Dokumentation</option><option>Konzeption</option><option>Reinzeichnung</option><option>Layout erstellt</option><option>Bühne produziert</option><option>Visual produziert</option><option>Research</option></select>');
     $container.append($close);
     $container.append($select);
 
