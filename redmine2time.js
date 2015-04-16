@@ -8,19 +8,22 @@ else {
     releasetheKraken();
 }
 function releasetheKraken() {
-    // create the element:
-    var h2 = $('#content h2').first();
-    var $text = h2.text().substring(h2.text().indexOf('#'))+': '+$('#content .subject h3').text();
-    var $container = $('<div id="redmine2time"><p id="redmine2time-text">' + $text + '</p></div>');
-    var $close = $('<a id="redmine2time-close" href="#">X</a>');
-    var $select = $('<select name="task" id="task_selector"><option></option><option>Entwicklung</option><option>Bug Fixing</option><option>Deployment</option><option>Testing</option><option>Kundenkommunikation</option><option>Interne Kommunikation</option><option>Dokumentation</option><option>Konzeption</option><option>Reinzeichnung</option><option>Layout erstellt</option><option>Bühne produziert</option><option>Visual produziert</option><option>Research</option></select>');
+    /* create the element */
+    var h2 = $('#content h2').first(),
+        $text = h2.text().substring(h2.text().indexOf('#'))+': '+$('#content .subject h3').text();
+    $('.attributes td.cf_23').each(function() {
+        $text = $(this).text() + ' | ' + $text;
+    });
+    var $container = $('<div id="redmine2time"><p id="redmine2time-text">' + $text + '</p></div>'),
+        $close = $('<a id="redmine2time-close" href="#">X</a>'),
+        $select = $('<select name="task" id="task_selector"><option></option><option>Entwicklung</option><option>Bug Fixing</option><option>Deployment</option><option>Testing</option><option>Kundenkommunikation</option><option>Interne Kommunikation</option><option>Dokumentation</option><option>Konzeption</option><option>Reinzeichnung</option><option>Layout erstellt</option><option>Bühne produziert</option><option>Visual produziert</option><option>Research</option></select>');
     $container.append($close);
     $container.append($select);
 
-    // append it to the body:
+    /* append it to the body */
     $('body').append($container);
 
-    // style it:
+    /* style it */
     $container.css({
         zIndex: '99',
         color: 'white',
@@ -52,11 +55,11 @@ function selectText(element) {
     var doc = document;
     var text = doc.getElementById(element);
 
-    if (doc.body.createTextRange) { // ms
+    if (doc.body.createTextRange) { /* ms */
         var range = doc.body.createTextRange();
         range.moveToElementText(text);
         range.select();
-    } else if (window.getSelection) { // moz, opera, webkit
+    } else if (window.getSelection) { /* moz, opera, webkit */
         var selection = window.getSelection();
         var range = doc.createRange();
         range.selectNodeContents(text);
